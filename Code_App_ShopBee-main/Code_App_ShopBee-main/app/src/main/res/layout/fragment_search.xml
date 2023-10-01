@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FBF7F7"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:paddingBottom="10dp"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="38dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:paddingRight="5dp"
+            android:paddingLeft="5dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/btn_search">
+            <EditText
+                android:id="@+id/edt_searchView"
+                android:layout_width="wrap_content"
+                android:layout_height="28dp"
+                android:layout_weight="1"
+                android:maxLines="1"
+                android:paddingLeft="10dp"
+                android:textSize="14dp"
+                android:hint="Chữ tìm kiếm gần nhất"
+                app:queryHint="@string/app_name"
+                android:inputType="text"
+                android:imeOptions="actionSend"
+                android:background="@drawable/custom_border_item_product"
+                android:layout_gravity="center"/>
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_baseline_search_24"
+                android:padding="1dp"
+                android:layout_marginRight="5dp"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_search"
+            android:layout_width="wrap_content"
+            android:background="@drawable/btn_search2"
+            android:text="Tìm kiếm"
+            android:onClick="add_history"
+            android:textColor="@color/white"
+            android:textAllCaps="false"
+            android:layout_height="38dp"/>
+    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_Result_Search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:visibility="visible" />
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinatorContainer"
+        android:layout_width="match_parent"
+        android:visibility="visible"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/tv_noResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:visibility="gone"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Không tìm thấy kết quả!"
+                android:textColor="#FF0D0D"
+                android:textStyle="bold"
+                android:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/imageView10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:padding="20dp"
+                app:srcCompat="@drawable/item_find_empty_64" />
+            <androidx.coordinatorlayout.widget.CoordinatorLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/btn_tryAgain"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    app:srcCompat="@drawable/bar_daban" />
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold"
+                    android:text="Thử với từ khóa khác" />
+            </androidx.coordinatorlayout.widget.CoordinatorLayout>
+        </LinearLayout>
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/coordinator_progress"
+            android:layout_width="40dp"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            android:layout_margin="10dp"
+            android:layout_height="40dp">
+            <ImageView
+                android:id="@+id/imageView8"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:padding="8dp"
+                app:srcCompat="@drawable/logo_bee" />
+            <ProgressBar
+                android:id="@+id/progressBar_search"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/circle_shape"
+                android:indeterminate="false"
+                android:progressDrawable="@drawable/circle_progress_bar"
+                android:layout_gravity="center"
+                android:textAlignment="center"/>
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+</LinearLayout>
